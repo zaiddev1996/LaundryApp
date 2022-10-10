@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:itemBackground="@android:color/transparent"
+        app:itemIconSize="25dp"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemTextAppearanceActive="@style/nav_text_style"
+        app:itemTextAppearanceInactive="@style/nav_text_style"
+        app:itemTextColor="@color/app_dark_blue"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <View
+        android:id="@+id/floating_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/fab_custom"
+        android:backgroundTint="@color/app_light_blue"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="@id/nav_view"
+        app:layout_constraintRight_toRightOf="@id/nav_view" />
+
+    <ImageView
+        android:id="@+id/iv_fb_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="2dp"
+        android:contentDescription="@string/new_order"
+        android:src="@drawable/add_icon"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_add"
+        app:layout_constraintLeft_toLeftOf="@id/floating_button"
+        app:layout_constraintRight_toRightOf="@id/floating_button"
+        app:layout_constraintTop_toTopOf="@id/floating_button"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_order"
+        android:textColor="@color/white"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toBottomOf="@id/floating_button"
+        app:layout_constraintEnd_toEndOf="@id/iv_fb_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_fb_icon"
+        app:layout_constraintTop_toBottomOf="@id/iv_fb_icon"
+        tools:ignore="SmallSp" />
+
+
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
